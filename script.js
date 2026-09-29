@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.2 });
   lineEls.forEach(function (el) { lineIO.observe(el); });
 
-  // Hero scroll-zoom: arch fills the screen, fades/zooms as you scroll,
-  // text fades out, then the palace artwork zooms in to replace it.
   var wrapper = document.querySelector('.hero-pin-wrapper');
   var archEl = document.querySelector('.archway-frame');
   var contentEl = document.querySelector('.hero-content');

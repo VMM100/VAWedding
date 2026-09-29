@@ -74,6 +74,7 @@
         <section class="schedule">
           <p class="eyebrow center" data-aos="fade-up" style="color: var(--gold)">The Celebration</p>
           <h2 class="center" data-aos="fade-up" data-aos-delay="100">Three Days of Celebration</h2>
+          <p class="schedule-hint" data-aos="fade-up" data-aos-delay="150">Tap a window to reveal its theme &amp; dress code</p>
 
           <div class="event-windows">
             <article class="event-window" data-aos="fade-up">
@@ -84,7 +85,7 @@
                 <h3>Mehndi &amp; Sangeet</h3>
                 <p class="event-theme">Chandani Raat</p>
                 <p class="placeholder">[Timings to be announced]</p>
-                <span class="event-cue">Theme &amp; Wardrobe</span>
+                <span class="event-cue" aria-hidden="true">View theme</span>
               </div>
               <button type="button" class="event-open" data-img="images/events/mehndi-sangeet.jpg" data-title="Chandani Raat — Mehndi &amp; Sangeet" aria-haspopup="dialog">
                 <span class="visually-hidden">View theme and wardrobe for Mehndi &amp; Sangeet</span>
@@ -99,7 +100,7 @@
                 <h3>Haldi Ceremony</h3>
                 <p class="event-theme">Rang Rasiya</p>
                 <p class="placeholder">[Timings to be announced]</p>
-                <span class="event-cue">Theme &amp; Wardrobe</span>
+                <span class="event-cue" aria-hidden="true">View theme</span>
               </div>
               <button type="button" class="event-open" data-img="images/events/haldi.jpg" data-title="Rang Rasiya — Haldi Ceremony" aria-haspopup="dialog">
                 <span class="visually-hidden">View theme and wardrobe for Haldi Ceremony</span>
@@ -115,7 +116,7 @@
                 <p class="event-theme">Vo Din</p>
                 <span class="badge">Main Event</span>
                 <p class="placeholder">[Timings to be announced]</p>
-                <span class="event-cue">Theme &amp; Wardrobe</span>
+                <span class="event-cue" aria-hidden="true">View theme</span>
               </div>
               <button type="button" class="event-open" data-img="images/events/wedding-reception.jpg" data-title="Vo Din — Wedding Ceremony &amp; Reception" aria-haspopup="dialog">
                 <span class="visually-hidden">View theme and wardrobe for Wedding Ceremony &amp; Reception</span>
@@ -145,9 +146,14 @@
   </main>
 
   <dialog class="event-dialog" id="eventDialog" aria-label="Event theme and wardrobe">
+    <div class="flip-card" id="flipCard">
+      <div class="flip-face flip-front" id="flipFront" aria-hidden="true"></div>
+      <div class="flip-face flip-back">
+        <img class="event-dialog-img" id="eventDialogImg" alt="">
+        <p class="event-dialog-missing" id="eventDialogMissing" hidden>Design coming soon</p>
+      </div>
+    </div>
     <button type="button" class="event-dialog-close" aria-label="Close">&times;</button>
-    <img class="event-dialog-img" id="eventDialogImg" alt="">
-    <p class="event-dialog-missing" id="eventDialogMissing" hidden>Design coming soon</p>
   </dialog>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

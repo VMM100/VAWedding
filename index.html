@@ -6,7 +6,7 @@ index.html
   <title>Ayushi &amp; Vandan — Wedding Invitation</title>
   <meta name="description" content="Join Ayushi and Vandan for three days of celebration, 17–19 January 2027, at Raj Vilas The Palace, Orchha, Madhya Pradesh.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,500;0,600;1,500;1,600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,47 +17,10 @@ index.html
   <main>
 
     <section class="hero">
-      <svg class="arch-frame" viewBox="0 0 300 340" aria-hidden="true">
-        <path id="archPath" d="M20 340 V160 Q20 60 90 40 Q90 70 150 70 Q210 70 210 40 Q280 60 280 160 V340" fill="none" stroke="var(--maroon)" stroke-width="3"/>
-      </svg>
-
-      <svg class="floral floral-tl" viewBox="0 0 160 160" aria-hidden="true">
-        <g fill="#6b7a4a">
-          <path d="M20 140 Q10 110 30 90 Q45 105 35 130 Q28 138 20 140Z"/>
-          <path d="M40 120 Q35 95 55 80 Q65 100 50 118 Q45 122 40 120Z"/>
-        </g>
-        <g fill="#8c2f45">
-          <circle cx="55" cy="45" r="14"/>
-          <circle cx="35" cy="60" r="11"/>
-          <circle cx="70" cy="65" r="10"/>
-          <circle cx="48" cy="80" r="9"/>
-        </g>
-        <g fill="#c97b8a">
-          <circle cx="55" cy="45" r="7"/>
-          <circle cx="35" cy="60" r="5.5"/>
-          <circle cx="70" cy="65" r="5"/>
-          <circle cx="48" cy="80" r="4.5"/>
-        </g>
-      </svg>
-
-      <svg class="floral floral-tr" viewBox="0 0 160 160" aria-hidden="true">
-        <g fill="#6b7a4a">
-          <path d="M20 140 Q10 110 30 90 Q45 105 35 130 Q28 138 20 140Z"/>
-          <path d="M40 120 Q35 95 55 80 Q65 100 50 118 Q45 122 40 120Z"/>
-        </g>
-        <g fill="#8c2f45">
-          <circle cx="55" cy="45" r="14"/>
-          <circle cx="35" cy="60" r="11"/>
-          <circle cx="70" cy="65" r="10"/>
-          <circle cx="48" cy="80" r="9"/>
-        </g>
-        <g fill="#c97b8a">
-          <circle cx="55" cy="45" r="7"/>
-          <circle cx="35" cy="60" r="5.5"/>
-          <circle cx="70" cy="65" r="5"/>
-          <circle cx="48" cy="80" r="4.5"/>
-        </g>
-      </svg>
+      <div class="archway-frame">
+        <img class="arch-half arch-left" src="images/arch-left.png" alt="" aria-hidden="true">
+        <img class="arch-half arch-right" src="images/arch-right.png" alt="" aria-hidden="true">
+      </div>
 
       <div class="hero-content">
         <p class="eyebrow" data-aos="fade-up" style="color: var(--gold)">With Love, We Invite You To The Wedding Of</p>
@@ -68,11 +31,6 @@ index.html
         </h1>
         <div class="line-draw" id="heroDivider"></div>
         <p class="eyebrow" data-aos="fade-up" data-aos-delay="400">A Celebration of Love, Family and New Beginnings</p>
-
-        <svg class="palace-silhouette" viewBox="0 0 400 150" aria-hidden="true">
-          <path d="M0 150 V100 H40 V80 Q40 65 55 65 Q70 65 70 80 V100 H110 V60 L130 40 L150 60 V100 H170 Q170 70 200 55 Q230 70 230 100 H250 V60 L270 40 L290 60 V100 H330 V80 Q330 65 345 65 Q360 65 360 80 V100 H400 V150 Z" fill="var(--maroon)" opacity="0.85"/>
-        </svg>
-
         <p class="date" data-aos="fade-up" data-aos-delay="500">17 – 19 January 2027</p>
         <p class="eyebrow" data-aos="fade-up" data-aos-delay="550">Orchha · Madhya Pradesh, India</p>
       </div>
@@ -101,9 +59,10 @@ index.html
     <section class="venue">
       <p class="eyebrow" data-aos="fade-up" style="color: var(--gold)">The Venue</p>
       <h2 data-aos="fade-up">Raj Vilas The Palace</h2>
-      <p class="sub" data-aos="fade-up" data-aos-delay="100">Orchha, Madhya Pradesh, India</p>
-      <p class="body-text" data-aos="fade-up" data-aos-delay="150">A royal palace setting for three days of festivities, tradition, and togetherness.</p>
-      <a class="btn" data-aos="fade-up" data-aos-delay="250" href="https://www.google.com/maps/search/?api=1&query=Raj+Vilas+The+Palace%2C+Orchha%2C+Madhya+Pradesh" target="_blank" rel="noopener">View Location</a>
+      <img class="venue-frame" data-aos="zoom-in" data-aos-delay="100" src="images/palace-frame.png" alt="Illustrated arch frame with Raj Vilas The Palace, Orchha">
+      <p class="sub" data-aos="fade-up" data-aos-delay="150">Orchha, Madhya Pradesh, India</p>
+      <p class="body-text" data-aos="fade-up" data-aos-delay="200">A royal palace setting for three days of festivities, tradition, and togetherness.</p>
+      <a class="btn" data-aos="fade-up" data-aos-delay="300" href="https://www.google.com/maps/search/?api=1&query=Raj+Vilas+The+Palace%2C+Orchha%2C+Madhya+Pradesh" target="_blank" rel="noopener">View Location</a>
     </section>
 
     <section class="schedule">

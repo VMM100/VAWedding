@@ -20,18 +20,48 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.2 });
   lineEls.forEach(function (el) { lineIO.observe(el); });
 
-  // Hero: the two arch halves slide inward to meet in the middle
-  var heroEl = document.querySelector('.hero');
-  if (heroEl) {
-    var heroIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.arch-half').forEach(function (el) { el.classList.add('in-view'); });
-          heroIO.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    heroIO.observe(heroEl);
+  // Hero scroll-zoom: arch fills the screen, fades/zooms as you scroll,
+  // text fades out, then the palace artwork zooms in to replace it.
+  var wrapper = document.querySelector('.hero-pin-wrapper');
+  var archEl = document.querySelector('.archway-frame');
+  var contentEl = document.querySelector('.hero-content');
+  var revealEl = document.querySelector('.palace-reveal');
+  var cueEl = document.querySelector('.hero-pin .scroll-cue');
+
+  function updateHeroZoom() {
+    if (!wrapper) return;
+    var rect = wrapper.getBoundingClientRect();
+    var scrollableDistance = wrapper.offsetHeight - window.innerHeight;
+    var progress = scrollableDistance > 0 ? -rect.top / scrollableDistance : 0;
+    progress = Math.max(0, Math.min(1, progress));
+
+    var p1 = Math.min(1, progress / 0.5);
+    if (contentEl) { contentEl.style.opacity = String(1 - p1); }
+    if (archEl) {
+      archEl.style.opacity = String(1 - p1);
+      archEl.style.transform = 'scale(' + (1 + p1 * 0.35) + ')';
+    }
+    if (cueEl) { cueEl.style.opacity = String(Math.max(0, 1 - progress * 6)); }
+
+    var p2 = Math.max(0, (progress - 0.5) / 0.5);
+    if (revealEl) {
+      revealEl.style.opacity = String(p2);
+      revealEl.style.transform = 'scale(' + (1.25 - p2 * 0.25) + ')';
+    }
+  }
+
+  var ticking = false;
+  function onScrollThrottled() {
+    if (!ticking) {
+      window.requestAnimationFrame(function () { updateHeroZoom(); ticking = false; });
+      ticking = true;
+    }
+  }
+
+  if (wrapper) {
+    window.addEventListener('scroll', onScrollThrottled, { passive: true });
+    window.addEventListener('resize', updateHeroZoom);
+    updateHeroZoom();
   }
 
   var bar = document.getElementById('progressBar');

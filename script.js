@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var lineEls = document.querySelectorAll('.line-draw, .timeline-line');
+  var lineEls = document.querySelectorAll('.line-draw');
   var lineIO = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -84,6 +84,32 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, { threshold: 0.5 });
     countIO.observe(countEl);
+  }
+
+  var dialog = document.getElementById('eventDialog');
+  if (dialog && dialog.showModal) {
+    var dialogImg = document.getElementById('eventDialogImg');
+    var missing = document.getElementById('eventDialogMissing');
+    var opener = null;
+
+    document.querySelectorAll('.event-open').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        opener = btn;
+        missing.hidden = true;
+        dialogImg.hidden = false;
+        dialogImg.alt = btn.dataset.title + ' — theme and wardrobe';
+        dialogImg.src = btn.dataset.img;
+        dialog.showModal();
+      });
+    });
+    dialogImg.addEventListener('error', function () {
+      dialogImg.hidden = true;
+      missing.hidden = false;
+    });
+    dialog.querySelector('.event-dialog-close').addEventListener('click', function () { dialog.close(); });
+    // a click outside the image lands on the dialog element itself (its backdrop)
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) { dialog.close(); } });
+    dialog.addEventListener('close', function () { if (opener) { opener.focus(); } });
   }
 
 });

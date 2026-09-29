@@ -173,17 +173,40 @@ a { color: inherit; text-decoration: none; }
   opacity: 0;
   will-change: transform, opacity;
 }
-.palace-reveal-img { width: 92%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
+/* Full-bleed: the palace always spans the screen edge to edge. On screens
+   wider than the artwork's proportions it is taller than the screen, so it
+   anchors to the bottom and the top of the arch is cropped instead. */
+@media (min-aspect-ratio: 843/1264) {
+  .palace-reveal { align-items: flex-end; }
+}
+.palace-stage {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 843 / 1264;
+  container-type: inline-size;
+}
+.palace-reveal-img { width: 100%; height: 100%; display: block; }
+/* Sits on the nameplate panel baked into the bottom of the artwork */
 .palace-reveal-info {
   position: absolute;
-  bottom: 9%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 10%;
+  right: 10%;
+  top: 92.8%;
+  bottom: 1.9%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 80%;
 }
-.palace-reveal-info h2 { margin: 6px 0; font-size: 26px; font-weight: 500; font-style: italic; color: var(--maroon); }
-.palace-reveal-info .sub { margin: 0; font-size: 14px; color: var(--ink); opacity: 0.85; }
+.palace-reveal-info .eyebrow { font-size: 1.5cqw; letter-spacing: 0.24em; line-height: 1.2; }
+.palace-reveal-info h2 { margin: 0.2cqw 0; font-size: max(15px, 3.6cqw); line-height: 1; font-weight: 500; font-style: italic; color: var(--maroon); }
+.palace-reveal-info .sub { margin: 0; font-size: max(8.5px, 1.8cqw); line-height: 1.15; color: var(--ink); opacity: 0.85; }
+/* phones: the nameplate is only ~30px tall, so keep just the name and place */
+@container (max-width: 560px) {
+  .palace-reveal-info .eyebrow { display: none; }
+}
 
 .note {
   padding: 96px 32px;

@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Draw-in gold lines (dividers + timeline)
   var lineEls = document.querySelectorAll('.line-draw, .timeline-line');
   var lineIO = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -21,26 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.2 });
   lineEls.forEach(function (el) { lineIO.observe(el); });
 
-  // Hero arch: hand-drawn outline effect, then florals, then palace
-  var archPath = document.getElementById('archPath');
-  if (archPath && archPath.getTotalLength) {
-    var archLength = archPath.getTotalLength();
-    archPath.style.strokeDasharray = archLength;
-    archPath.style.strokeDashoffset = archLength;
-  }
+  // Hero: the two arch halves slide inward to meet in the middle
   var heroEl = document.querySelector('.hero');
   if (heroEl) {
     var heroIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          if (archPath) { archPath.style.strokeDashoffset = '0'; }
-          setTimeout(function () {
-            document.querySelectorAll('.floral').forEach(function (el) { el.classList.add('in-view'); });
-          }, 500);
-          setTimeout(function () {
-            var palace = document.querySelector('.palace-silhouette');
-            if (palace) { palace.classList.add('in-view'); }
-          }, 1400);
+          document.querySelectorAll('.arch-half').forEach(function (el) { el.classList.add('in-view'); });
           heroIO.unobserve(entry.target);
         }
       });
@@ -48,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
     heroIO.observe(heroEl);
   }
 
-  // Scroll progress bar
   var bar = document.getElementById('progressBar');
   var onScroll = function () {
     var doc = document.documentElement;
@@ -60,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Live count-up to the wedding date
   var countEl = document.getElementById('countdownNumber');
   if (countEl) {
     var target = Math.max(0, Math.ceil((new Date(2027, 0, 19) - new Date()) / 86400000));

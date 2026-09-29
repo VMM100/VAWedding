@@ -75,36 +75,49 @@
           <p class="eyebrow center" data-aos="fade-up" style="color: var(--gold)">The Celebration</p>
           <h2 class="center" data-aos="fade-up" data-aos-delay="100">Three Days of Celebration</h2>
 
-          <div class="timeline">
-            <div class="timeline-line" id="timelineLine"></div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-              <div class="node">01</div>
-              <div>
-                <p class="eyebrow small" style="color: var(--gold)">17 January 2027</p>
+          <div class="event-windows">
+            <article class="event-window" data-aos="fade-up">
+              <img class="event-arch" src="images/event-arch.png" alt="" aria-hidden="true">
+              <div class="event-info">
+                <span class="event-num">01</span>
+                <p class="eyebrow event-date">17 January 2027</p>
                 <h3>Mehndi &amp; Sangeet</h3>
                 <p class="placeholder">[Timings to be announced]</p>
+                <span class="event-cue">Theme &amp; Wardrobe</span>
               </div>
-            </div>
+              <button type="button" class="event-open" data-img="images/events/mehndi-sangeet.jpg" data-title="Mehndi &amp; Sangeet" aria-haspopup="dialog">
+                <span class="visually-hidden">View theme and wardrobe for Mehndi &amp; Sangeet</span>
+              </button>
+            </article>
 
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="node">02</div>
-              <div>
-                <p class="eyebrow small" style="color: var(--gold)">18 January 2027</p>
+            <article class="event-window" data-aos="fade-up">
+              <img class="event-arch" src="images/event-arch.png" alt="" aria-hidden="true">
+              <div class="event-info">
+                <span class="event-num">02</span>
+                <p class="eyebrow event-date">18 January 2027</p>
                 <h3>Haldi Ceremony</h3>
                 <p class="placeholder">[Timings to be announced]</p>
+                <span class="event-cue">Theme &amp; Wardrobe</span>
               </div>
-            </div>
+              <button type="button" class="event-open" data-img="images/events/haldi.jpg" data-title="Haldi Ceremony" aria-haspopup="dialog">
+                <span class="visually-hidden">View theme and wardrobe for Haldi Ceremony</span>
+              </button>
+            </article>
 
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-              <div class="node node-main">03</div>
-              <div>
-                <p class="eyebrow small" style="color: var(--gold)">19 January 2027</p>
+            <article class="event-window event-main" data-aos="fade-up">
+              <img class="event-arch" src="images/event-arch.png" alt="" aria-hidden="true">
+              <div class="event-info">
+                <span class="event-num">03</span>
+                <p class="eyebrow event-date">19 January 2027</p>
                 <h3>Wedding Ceremony &amp; Reception</h3>
                 <span class="badge">Main Event</span>
                 <p class="placeholder">[Timings to be announced]</p>
+                <span class="event-cue">Theme &amp; Wardrobe</span>
               </div>
-            </div>
+              <button type="button" class="event-open" data-img="images/events/wedding-reception.jpg" data-title="Wedding Ceremony &amp; Reception" aria-haspopup="dialog">
+                <span class="visually-hidden">View theme and wardrobe for Wedding Ceremony &amp; Reception</span>
+              </button>
+            </article>
           </div>
         </section>
 
@@ -127,6 +140,12 @@
     </div>
 
   </main>
+
+  <dialog class="event-dialog" id="eventDialog" aria-label="Event theme and wardrobe">
+    <button type="button" class="event-dialog-close" aria-label="Close">&times;</button>
+    <img class="event-dialog-img" id="eventDialogImg" alt="">
+    <p class="event-dialog-missing" id="eventDialogMissing" hidden>Design coming soon</p>
+  </dialog>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="script.js"></script>

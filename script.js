@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var wrapper = document.querySelector('.hero-pin-wrapper');
   var archEl = document.querySelector('.archway-frame');
-  var contentEl = document.querySelector('.hero-content');
   var revealEl = document.querySelector('.palace-reveal');
   var cueEl = document.querySelector('.hero-pin .scroll-cue');
 
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     progress = Math.max(0, Math.min(1, progress));
 
     var p1 = Math.min(1, progress / 0.5);
-    if (contentEl) { contentEl.style.opacity = String(1 - p1); }
     if (archEl) {
       archEl.style.opacity = String(1 - p1);
       archEl.style.transform = 'scale(' + (1 + p1 * 0.35) + ')';

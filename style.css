@@ -184,9 +184,19 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background:
-    url("images/pillar-vines.png") repeat-y center top / 100% auto,
-    url("images/pillar-tile.png") repeat-y center top / 100% auto;
+  background: url("images/pillar-tile.png?v=2") repeat-y center top / 100% auto;
+}
+/* flower clusters on the pillars; faded out just above the palace so a
+   cluster that lands on the edge never shows as a cut-off sliver */
+.pp-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: url("images/pillar-vines.png?v=2") repeat-y center top / 100% auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 18cqw), transparent calc(100% - 6cqw));
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 18cqw), transparent calc(100% - 6cqw));
 }
 .pp-body > section { padding-inline: calc(15% + 4px); }
 
@@ -306,20 +316,6 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   text-align: center;
 }
-.event-num {
-  width: 11cqw;
-  height: 11cqw;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cinzel', serif;
-  font-size: 4cqw;
-  color: var(--maroon);
-  margin-bottom: 3cqw;
-}
-.event-main .event-num { background: var(--maroon); color: var(--gold); border-color: var(--maroon); }
 .event-date { font-size: max(8px, 3.2cqw); letter-spacing: 0.14em; line-height: 1.4; color: var(--gold); margin-bottom: 1.5cqw; }
 .event-info h3 { margin: 0 0 2cqw; font-size: 7.4cqw; line-height: 1.1; font-weight: 500; font-style: italic; color: var(--maroon); }
 .event-theme { margin: -1cqw 0 2cqw; font-size: max(11px, 4.8cqw); font-style: italic; color: var(--gold); line-height: 1.1; }
@@ -511,10 +507,7 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 .closing-line { font-size: 22px; font-style: italic; margin: 0 0 12px; }
 .closing .eyebrow { margin: 0 0 40px; }
 .footnote { font-size: 14px; opacity: 0.7; margin: 0; }
-/* the main event has a longer title plus a badge: tighten it to fit the window */
-.event-main .event-num { width: 9.5cqw; height: 9.5cqw; font-size: 3.6cqw; margin-bottom: 1.6cqw; }
-.event-main .event-info h3 { font-size: 6cqw; margin-bottom: 1.2cqw; }
-.event-main .event-theme { margin-bottom: 1.4cqw; }
-.event-main .badge { margin-bottom: 1.4cqw; }
-.event-main .event-cue { margin-top: 1.6cqw; }
-.event-main .event-info { top: 37.8%; bottom: 27%; }
+/* the main event has a three-line title plus a badge: slightly smaller title to fit the window */
+.event-main .event-info h3 { font-size: 6.2cqw; margin-bottom: 1.4cqw; }
+.event-main .event-theme, .event-main .badge { margin-bottom: 1.4cqw; }
+.event-main .event-info { top: 40%; bottom: 25%; }

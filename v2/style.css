@@ -97,8 +97,8 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  /* matches the paper tone baked into the arch artwork, so the sides blend */
-  background: #faf1e4;
+  /* same paper as the page, so there's no seam where the palace section rises over it */
+  background: var(--paper);
 }
 
 /* The two halves form one 850×1261 window. It always spans the full height
@@ -245,18 +245,30 @@ a { color: inherit; text-decoration: none; }
   .palace-reveal-info .eyebrow { display: none; }
 }
 
-.note {
+/* Shrinathji in the palace window; the blessing sits just below, between the pillars */
+.deity {
   position: absolute;
-  left: 22%;
-  right: 22%;
-  top: 30%;
-  bottom: 8%;
+  left: 25%;
+  right: 25%;
+  top: 27%;
+  bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+}
+.deity img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(90, 40, 20, 0.18));
+}
+.note {
+  padding: 4cqw calc(15% + 4px) 8cqw;
   text-align: center;
 }
-.note p { font-size: min(4.2cqw, 26px); font-style: italic; line-height: 1.5; margin: 0; }
+.note p { font-size: max(17px, min(3.4cqw, 24px)); font-style: italic; line-height: 1.5; margin: 0 auto; max-width: 30em; }
 
 .countdown {
   background: linear-gradient(var(--maroon), var(--maroon)) center / 85% 100% no-repeat;

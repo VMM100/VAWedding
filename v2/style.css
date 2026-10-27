@@ -250,10 +250,10 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   left: 25%;
   right: 25%;
-  top: 27%;
-  bottom: 0;
+  top: 52%;
+  bottom: 11.5%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 .deity img {

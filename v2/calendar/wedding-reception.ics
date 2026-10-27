@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ayushi & Vandan//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-reception-2027@ayushi-vandan-wedding
+DTSTAMP:20261027T120000Z
+DTSTART:20270119T090000Z
+DTEND:20270119T173000Z
+SUMMARY:Vo Din — Wedding Ceremony & Reception · Ayushi & Vandan
+LOCATION:Raj Vilas The Palace\, Orchha\, Madhya Pradesh\, India
+DESCRIPTION:Dress code: whatever makes you happiest.\nInvitation: https://vmm100.github.io/VAWedding/v2/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

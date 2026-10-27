@@ -1,6 +1,17 @@
 # Ayushi & Vandan — Wedding Invite Site
 
-Three files make up the whole site:
+## Two versions
+
+- **Version 1 (original)** — the files at the top level of the repo. Live at `https://vmm100.github.io/VAWedding/`. Also saved as the `v1` tag, so it can always be restored exactly.
+- **Version 2 (improved)** — everything in the `v2` folder. Live at `https://vmm100.github.io/VAWedding/v2/`. It uses the same `images` folder, plus its own link-preview picture (`share.jpg`), tab icon (`icon.png`) and calendar files (`calendar/`).
+
+To make version 2 the main one later, copy the files in `v2` to the top level and change `../images/` back to `images/` in `index.html` and `style.css` — or just share the `/v2/` link.
+
+What changed in version 2: easier-to-read gold text and bigger small text on phones, no blank screen after the opening, a dress-code line and "Add to calendar" button under each event, a WhatsApp/iMessage link preview, a tab icon, and a countdown to the first day (18 Jan) that changes to a message on the day.
+
+## Version 1 files
+
+Three files make up the whole site (plus the `images` folder, which must be uploaded too):
 
 - `index.html` — the page content
 - `style.css` — colors, fonts, layout

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ayushi & Vandan//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:haldi-2027@ayushi-vandan-wedding
+DTSTAMP:20261027T120000Z
+DTSTART:20270118T073000Z
+DTEND:20270118T103000Z
+SUMMARY:Rang Rasiya — Haldi Ceremony · Ayushi & Vandan
+LOCATION:Raj Vilas The Palace\, Orchha\, Madhya Pradesh\, India
+DESCRIPTION:Dress code: pinks and oranges.\nInvitation: https://vmm100.github.io/VAWedding/v2/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -306,7 +306,7 @@ a { color: inherit; text-decoration: none; }
 }
 .btn:hover { background: var(--maroon); color: var(--paper); }
 
-.schedule { padding: 36px 32px 120px; }
+.schedule { padding: 36px 32px 72px; }
 .schedule h2 {
   margin: 0 0 32px;
   font-size: 32px;
@@ -576,3 +576,36 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 
 /* the tagline now lives in the closing band, where it has room to be read */
 .closing-tagline { margin: 0 0 14px; color: var(--gold-on-maroon); }
+
+/* travel & stay */
+.travel { padding: 24px 32px 96px; }
+.travel h2 {
+  margin: 12px 0 28px;
+  font-size: 32px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--maroon);
+}
+.travel-list { display: grid; gap: 28px; max-width: 420px; margin: 0 auto; }
+.travel-item { text-align: center; }
+.travel-item svg { color: var(--maroon); display: block; margin: 0 auto 6px; }
+.travel-item h3 {
+  margin: 0 0 6px;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+.travel-item p { margin: 0; font-size: 18px; line-height: 1.5; }
+.travel-item strong { font-weight: 600; color: var(--maroon); }
+.travel-note {
+  max-width: 420px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--gold);
+  text-align: center;
+  font-size: 17px;
+  font-style: italic;
+}

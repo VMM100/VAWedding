@@ -2,7 +2,7 @@
 
 ## Two versions
 
-- **Version 1 (original)** — the files at the top level of the repo. Live at `https://vmm100.github.io/VAWedding/`. Also saved as the `v1` tag, so it can always be restored exactly.
+- **Version 1 (original)** — the files at the top level of the repo. Live at `https://vmm100.github.io/VAWedding/`. Also saved as the `v1-original` branch, so it can always be restored exactly.
 - **Version 2 (improved)** — everything in the `v2` folder. Live at `https://vmm100.github.io/VAWedding/v2/`. It uses the same `images` folder, plus its own link-preview picture (`share.jpg`), tab icon (`icon.png`) and calendar files (`calendar/`).
 
 To make version 2 the main one later, copy the files in `v2` to the top level and change `../images/` back to `images/` in `index.html` and `style.css` — or just share the `/v2/` link.

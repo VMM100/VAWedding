@@ -621,3 +621,23 @@ html:has(.event-dialog[open]) { overflow: hidden; }
   font-size: 17px;
   font-style: italic;
 }
+
+/* offline PDF download at the end of the page */
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  margin-top: 36px;
+  padding: 0 18px;
+  border: 1.5px solid var(--gold-on-maroon);
+  color: var(--paper);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.pdf-link:hover { background: var(--gold-on-maroon); color: var(--maroon); }
+.pdf-link:focus-visible { outline: 2px solid var(--gold-on-maroon); outline-offset: 3px; }
+.pdf-note { margin: 10px 0 0; font-size: 14px; opacity: 0.8; }

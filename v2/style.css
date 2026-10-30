@@ -643,3 +643,15 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 .pdf-link:hover { background: var(--gold-on-maroon); color: var(--maroon); }
 .pdf-link:focus-visible { outline: 2px solid var(--gold-on-maroon); outline-offset: 3px; }
 .pdf-note { margin: 10px 0 0; font-size: 14px; opacity: 0.8; }
+
+/* small phones: the arch is shorter, so tighten the spacing inside the window */
+@container (max-height: 600px) {
+  .hero-content .eyebrow { line-height: 1.25; }
+  .names { margin-top: 0.4cqh; line-height: 1; }
+  .names .amp { margin: 0.3cqh 0; }
+  .hero-content .line-draw-static { margin: 0.8cqh auto; }
+  .date { margin-top: 0.6cqh; }
+}
+@container (max-height: 500px) {
+  .hero-content .line-draw-static { display: none; }
+}

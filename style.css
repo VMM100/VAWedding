@@ -705,3 +705,11 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 }
 /* parents on one line: smaller, and allowed to use the full width between the pillars */
 .note .couple-parents { white-space: nowrap; font-size: min(12px, 2.8cqw); letter-spacing: 0.03em; max-width: none; width: calc(100% + 18cqw); margin-left: -9cqw; margin-right: -9cqw; }
+
+/* countdown: a thin maroon band with gold lines, under "as they begin their forever." */
+.cd-band { position: relative; margin: 22px calc(-7.5cqw - 4px) 0; padding: 7px 12px; background: var(--maroon); }
+.cd-band::before { content: ""; position: absolute; left: 0; right: 0; top: 3px; bottom: 3px; border-top: 1px solid var(--gold-on-maroon); border-bottom: 1px solid var(--gold-on-maroon); pointer-events: none; }
+.cd-band .countdown-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; }
+.cd-band .countdown-number { font-family: 'Cinzel', serif; font-size: 26px; line-height: 1; font-weight: 600; color: var(--gold-on-maroon); }
+.cd-band .countdown-row .eyebrow { color: var(--paper); font-size: 12px; letter-spacing: 0.16em; line-height: 1; }
+.note .cd-band .countdown-done { font-size: 17px; line-height: 1.2; color: var(--paper); margin: 0; }

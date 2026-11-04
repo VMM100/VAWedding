@@ -703,3 +703,5 @@ html:has(.event-dialog[open]) { overflow: hidden; }
   .cd-scroll.cd-hero { width: 22cqh; left: min(66%, calc(50% + 50vw - 22cqh - 14px)); }
   .cd-hero .countdown-number { font-size: max(18px, 3.2cqh); }
 }
+/* parents on one line: smaller, and allowed to use the full width between the pillars */
+.note .couple-parents { white-space: nowrap; font-size: min(12px, 2.8cqw); letter-spacing: 0.03em; max-width: none; width: calc(100% + 18cqw); margin-left: -9cqw; margin-right: -9cqw; }

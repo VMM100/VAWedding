@@ -693,7 +693,7 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 .countdown p { opacity: 1; }
 
 /* countdown scroll tucked into the bottom-right corner of the opening arch window */
-.cd-scroll.cd-hero { position: absolute; z-index: 3; width: 25cqh; left: min(66%, calc(50% + 50vw - 25cqh - 16px)); top: 88.5%; margin: 0; transform: rotate(-4deg); }
+.cd-scroll.cd-hero { position: absolute; z-index: 3; width: 25cqh; left: min(66%, calc(50% + 50vw - 25cqh - 16px)); top: 88.5%; margin: 0; transform: none; }
 .cd-hero .cd-scroll-text { left: 13%; right: 13%; top: 14%; bottom: 14%; }
 .cd-hero .countdown-row { flex-direction: column; align-items: center; gap: 0; margin: 0; }
 .cd-hero .countdown-number { font-size: max(20px, 3.6cqh); line-height: 1; }

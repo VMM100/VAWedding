@@ -713,3 +713,4 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 .cd-band .countdown-number { font-family: 'Cinzel', serif; font-size: 26px; line-height: 1; font-weight: 600; color: var(--gold-on-maroon); }
 .cd-band .countdown-row .eyebrow { color: var(--paper); font-size: 12px; letter-spacing: 0.16em; line-height: 1; }
 .note .cd-band .countdown-done { font-size: 17px; line-height: 1.2; color: var(--paper); margin: 0; }
+.note .couple-parents .rel { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 1.3em; margin-right: 0.15em; }

@@ -3,6 +3,9 @@
   --gold: #c9a227;
   --paper: #f7f0e1;
   --ink: #2b1810;
+  /* gold for TEXT: --gold is kept for lines, borders and big numbers */
+  --gold-text: #836411;      /* on paper: 4.9:1 */
+  --gold-on-maroon: #d9b440; /* on maroon: 5.4:1 */
 }
 
 * { box-sizing: border-box; }
@@ -59,7 +62,8 @@ a { color: inherit; text-decoration: none; }
 }
 .scroll-cue {
   position: absolute;
-  bottom: 32px;
+  /* above the floating address bar of WhatsApp / Safari */
+  bottom: calc(30px + env(safe-area-inset-bottom));
   /* centred without transform, so the bounce animation (which sets transform) can't shift it */
   left: 0;
   right: 0;
@@ -72,7 +76,7 @@ a { color: inherit; text-decoration: none; }
   gap: 6px;
   animation: bounce 1.8s ease-in-out infinite;
 }
-.scroll-cue .eyebrow { font-size: 10px; color: var(--maroon); opacity: 0.7; padding-left: 0.28em; /* balances the trailing letter-spacing */ }
+.scroll-cue .eyebrow { font-size: 12px; color: var(--maroon); font-weight: 600; padding-left: 0.28em; /* balances the trailing letter-spacing */ }
 
 @media (prefers-reduced-motion: reduce) {
   [data-aos] { transition: none !important; transform: none !important; opacity: 1 !important; }
@@ -83,7 +87,7 @@ a { color: inherit; text-decoration: none; }
 /* Hero scroll-zoom */
 .hero-pin-wrapper {
   position: relative;
-  height: 180vh;
+  height: 160vh;
 }
 .hero-pin {
   position: sticky;
@@ -94,16 +98,17 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  /* matches the paper tone baked into the arch artwork, so the sides blend */
-  background: #faf1e4;
+  /* same paper as the page, so there's no seam where the palace section rises over it */
+  background: var(--paper);
 }
 
 /* The two halves form one 850×1261 window. It always spans the full height
    of the screen and keeps its proportions; extra width shows plain paper,
    and on narrow phones the outer (empty) edges are trimmed instead. */
 .archway-frame {
-  --frame-h: 100vh;
-  --frame-h: 100svh;
+  /* leave a strip at the bottom for the Scroll hint, so it never sits on the artwork */
+  --frame-h: calc(100vh - 96px);
+  --frame-h: calc(100svh - 96px);
   --frame-w: calc(var(--frame-h) * 850 / 1261);
   position: absolute;
   top: 0;
@@ -136,8 +141,8 @@ a { color: inherit; text-decoration: none; }
    Type is sized with container units so it scales with the window. */
 .hero-content {
   position: absolute;
-  left: 35.5%;
-  right: 35.5%;
+  left: 35%;
+  right: 35%;
   top: 41.5%;
   bottom: 28%;
   z-index: 2;
@@ -148,15 +153,16 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 .hero-content .eyebrow {
-  font-size: max(8px, 1cqh);
-  letter-spacing: 0.1em;
-  line-height: 1.5;
+  font-size: max(12px, 1.25cqh);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
 }
-.hero-content .invite { color: var(--gold); max-width: 84%; }
+.hero-content .invite { color: var(--gold-text); max-width: 90%; }
 .hero-content .tagline { max-width: 90%; }
 /* on very short screens there isn't room for everything at a readable size */
+/* on very short screens there isn't room for everything at a readable size */
 @container (max-height: 720px) {
-  .hero-content .tagline { display: none; }
+  .hero-content .place { display: none; } /* the venue section follows straight after */
 }
 .hero-content .line-draw-static { width: 30%; height: 1px; margin: 1.3cqh auto; }
 
@@ -172,13 +178,13 @@ a { color: inherit; text-decoration: none; }
 .names .amp {
   font-family: 'Cinzel', serif;
   font-style: normal;
-  font-size: max(7.5px, 1.1cqh);
+  font-size: max(12px, 1.2cqh);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin: 0.7cqh 0;
 }
-.date { font-size: 1.8cqh; margin: 1.1cqh 0 0.5cqh; }
+.date { font-size: max(16px, 1.9cqh); margin: 1.1cqh 0 0.5cqh; }
 
 /* Pillared page: the palace artwork is sliced into a crown (arch), a pillar
    band that repeats down the page, and a base (palace + nameplate). All three
@@ -186,12 +192,16 @@ a { color: inherit; text-decoration: none; }
    percentages of the artwork: pillar shafts sit at x 4.3–10.7% and 89.3–95.6%. */
 .palace-page {
   position: relative;
+  z-index: 2;
   width: min(100%, 760px);
-  margin: 0 auto;
+  /* rises over the end of the hero instead of after it, so there's no blank screen */
+  margin: -50vh auto 0;
   container-type: inline-size;
 }
 .pp-img { display: block; width: 100%; height: auto; }
 .pp-crown, .pp-base { position: relative; }
+/* solid behind the note so the fading hero doesn't show through the palace window */
+.pp-crown { background: linear-gradient(to bottom, transparent 0, transparent 12%, var(--paper) 26%); }
 
 .pp-body { position: relative; padding-bottom: 12cqw; }
 .pp-body::after {
@@ -229,26 +239,38 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   text-align: center;
 }
-.palace-reveal-info .eyebrow { font-size: 1.5cqw; letter-spacing: 0.24em; line-height: 1.2; }
+.palace-reveal-info .eyebrow { font-size: max(12px, 1.5cqw); letter-spacing: 0.24em; line-height: 1.2; }
 .palace-reveal-info h2 { margin: 0.2cqw 0; font-size: max(15px, 3.6cqw); line-height: 1; font-weight: 500; font-style: italic; color: var(--maroon); }
-.palace-reveal-info .sub { margin: 0; font-size: max(8.5px, 1.8cqw); line-height: 1.15; color: var(--ink); opacity: 0.85; }
+.palace-reveal-info .sub { margin: 0; font-size: max(12px, 1.8cqw); line-height: 1.15; color: var(--ink); opacity: 0.85; }
 /* phones: the nameplate is only ~30px tall, so keep just the name and place */
 @container (max-width: 560px) {
   .palace-reveal-info .eyebrow { display: none; }
 }
 
-.note {
+/* Shrinathji in the palace window; the blessing sits just below, between the pillars */
+.deity {
   position: absolute;
-  left: 22%;
-  right: 22%;
-  top: 30%;
-  bottom: 8%;
+  left: 25%;
+  right: 25%;
+  top: 52%;
+  bottom: 11.5%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.deity img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(90, 40, 20, 0.18));
+}
+.note {
+  padding: 4cqw calc(15% + 4px) 8cqw;
   text-align: center;
 }
-.note p { font-size: min(4.2cqw, 26px); font-style: italic; line-height: 1.5; margin: 0; }
+.note p { font-size: max(17px, min(3.4cqw, 24px)); font-style: italic; line-height: 1.5; margin: 0 auto; max-width: 30em; }
 
 .countdown {
   background: linear-gradient(var(--maroon), var(--maroon)) center / 85% 100% no-repeat;
@@ -298,7 +320,7 @@ a { color: inherit; text-decoration: none; }
 }
 .btn:hover { background: var(--maroon); color: var(--paper); }
 
-.schedule { padding: 36px 32px 120px; }
+.schedule { padding: 36px 32px 72px; }
 .schedule h2 {
   margin: 0 0 32px;
   font-size: 32px;
@@ -315,40 +337,42 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 12px;
 }
+.event-windows { margin-inline: calc(-4% - 4px); }
 .event-window {
   position: relative;
-  width: min(100%, 300px);
+  width: min(100%, 360px);
   container-type: inline-size;
 }
 .event-arch { display: block; width: 100%; height: auto; }
 .event-info {
   position: absolute;
-  left: 30%;
-  right: 30%;
-  top: 38%;
-  bottom: 26%;
+  left: 27%;
+  right: 27%;
+  top: 37%;
+  bottom: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.event-date { font-size: max(8px, 3.2cqw); letter-spacing: 0.14em; line-height: 1.4; color: var(--gold); margin-bottom: 1.5cqw; }
+.event-date { font-size: max(12px, 3.6cqw); letter-spacing: 0.08em; line-height: 1.4; color: var(--gold-text); margin-bottom: 1.5cqw; }
 .event-info h3 { margin: 0 0 2cqw; font-size: 7.4cqw; line-height: 1.1; font-weight: 500; font-style: italic; color: var(--maroon); }
-.event-theme { margin: -1cqw 0 2cqw; font-size: max(11px, 4.8cqw); font-style: italic; color: var(--gold); line-height: 1.1; }
-.event-info .event-time { margin: 0; font-size: max(12px, 5.2cqw); line-height: 1.3; letter-spacing: 0.02em; }
-.event-info .badge { font-size: max(7.5px, 2.8cqw); padding: 0.8cqw 2.4cqw; margin-bottom: 2cqw; }
+.event-theme { margin: -1cqw 0 2cqw; font-size: max(14px, 4.8cqw); font-style: italic; color: var(--gold-text); line-height: 1.1; }
+.event-info .event-time { margin: 0; font-size: max(15px, 5.2cqw); line-height: 1.3; letter-spacing: 0.02em; }
+.event-info .badge { font-size: max(12px, 2.8cqw); letter-spacing: 0.1em; padding: 0.8cqw 2.4cqw; margin-bottom: 2cqw; }
 .event-cue {
   margin-top: 2.6cqw;
+  border-color: var(--gold-on-maroon);
   font-family: 'Cinzel', serif;
-  font-size: max(7.5px, 2.6cqw);
-  letter-spacing: 0.1em;
+  font-size: max(12px, 3.4cqw);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--paper);
   background: var(--maroon);
   border: 1px solid var(--gold);
   border-radius: 999px;
-  padding: 1.1cqw 2.8cqw;
+  padding: 1.4cqw 3.4cqw;
   white-space: nowrap;
   animation: cue-glow 2.6s ease-in-out infinite;
 }
@@ -468,8 +492,8 @@ a { color: inherit; text-decoration: none; }
 }
 .event-dialog-close {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1.5px solid var(--gold);
   background: var(--maroon);
@@ -514,5 +538,135 @@ html:has(.event-dialog[open]) { overflow: hidden; }
   margin: 0 auto 28px;
 }
 .closing-line { font-size: 22px; font-style: italic; margin: 0 0 12px; }
-.closing .eyebrow { margin: 0 0 40px; }
-.footnote { font-size: 14px; opacity: 0.7; margin: 0; }
+.closing .eyebrow { margin: 0 0 40px; color: var(--gold-on-maroon); }
+.footnote { font-size: 15px; opacity: 0.85; margin: 0; }
+
+/* ---- v2 additions ---- */
+.countdown .eyebrow.gold, .countdown-number { color: var(--gold-on-maroon); }
+.countdown-done { font-size: 26px; font-style: italic; margin: 10px 0 0; }
+
+/* dress code + calendar link under each arch (outside it, so the flip copy stays clean) */
+.event-extras {
+  width: min(100%, 360px);
+  margin: -4px auto 28px;
+  text-align: center;
+}
+.event-dress {
+  margin: 0 0 12px;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.event-dress strong {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 2px;
+}
+.cal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1.5px solid var(--maroon);
+  color: var(--maroon);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cal-link:hover { background: var(--maroon); color: var(--paper); }
+.cal-link svg { flex: none; }
+
+.btn:focus-visible, .cal-link:focus-visible, .event-dialog-close:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 3px;
+}
+.event-dialog-close:focus-visible { outline-color: var(--gold-on-maroon); }
+
+/* the tagline now lives in the closing band, where it has room to be read */
+.closing-tagline { margin: 0 0 14px; color: var(--gold-on-maroon); }
+
+/* travel & stay */
+.travel { padding: 24px 32px 96px; }
+.travel h2 {
+  margin: 12px 0 28px;
+  font-size: 32px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--maroon);
+}
+.travel-list { display: grid; gap: 28px; max-width: 420px; margin: 0 auto; }
+.travel-item { text-align: center; }
+.travel-item svg { color: var(--maroon); display: block; margin: 0 auto 6px; }
+.travel-item h3 {
+  margin: 0 0 6px;
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+.travel-item p { margin: 0; font-size: 18px; line-height: 1.5; }
+.travel-item strong { font-weight: 600; color: var(--maroon); }
+.travel-note {
+  max-width: 420px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--gold);
+  text-align: center;
+  font-size: 17px;
+  font-style: italic;
+}
+
+/* offline PDF download at the end of the page */
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  margin-top: 36px;
+  padding: 0 18px;
+  border: 1.5px solid var(--gold-on-maroon);
+  color: var(--paper);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.pdf-link:hover { background: var(--gold-on-maroon); color: var(--maroon); }
+.pdf-link:focus-visible { outline: 2px solid var(--gold-on-maroon); outline-offset: 3px; }
+.pdf-note { margin: 10px 0 0; font-size: 14px; opacity: 0.8; }
+
+/* small phones: the arch is shorter, so tighten the spacing inside the window */
+@container (max-height: 600px) {
+  .hero-content .eyebrow { line-height: 1.25; }
+  .names { margin-top: 0.4cqh; line-height: 1; }
+  .names .amp { margin: 0.3cqh 0; }
+  .hero-content .line-draw-static { margin: 0.8cqh auto; }
+  .date { margin-top: 0.6cqh; }
+}
+@container (max-height: 500px) {
+  .hero-content .line-draw-static { display: none; }
+}
+
+/* names joined by an italic ampersand instead of the word "and" */
+.names .amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: max(20px, 2.7cqh);
+  line-height: 1;
+  margin: 0.2cqh 0 0.5cqh;
+}
+@container (max-height: 600px) {
+  .names .amp { font-size: 2.3cqh; margin: 0; }
+}

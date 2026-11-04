@@ -64,8 +64,22 @@ document.addEventListener('DOMContentLoaded', function () {
   onScroll();
 
   var countEl = document.getElementById('countdownNumber');
+  // count whole calendar days to the first event (18 Jan); on and after it, say so instead of "0"
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var daysLeft = Math.round((new Date(2027, 0, 18) - today) / 86400000);
+  if (countEl && daysLeft <= 0) {
+    var row = document.getElementById('countdownRow');
+    var msg = document.createElement('p');
+    msg.className = 'countdown-done';
+    msg.textContent = daysLeft === 0 ? 'The celebrations begin today' :
+                      daysLeft === -1 ? 'Today is the wedding day' :
+                      'Thank you for celebrating with us';
+    if (row) { row.replaceWith(msg); }
+    countEl = null;
+  }
+  if (countEl && daysLeft === 1) { countEl.nextElementSibling.textContent = 'Day To Go'; }
   if (countEl) {
-    var target = Math.max(0, Math.ceil((new Date(2027, 0, 19) - new Date()) / 86400000));
+    var target = daysLeft;
     var countIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -154,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (current) { return; }
       var win = btn.closest('.event-window');
       current = { btn: btn, win: win, busy: true, size: null };
-      dialogImg.alt = btn.dataset.title + ' — theme and wardrobe';
+      dialogImg.alt = btn.dataset.title + ' — dress code: ' + (btn.dataset.alt || 'theme and wardrobe');
 
       loadDesign(btn.dataset.img).then(function (ok) {
         dialogImg.hidden = !ok;

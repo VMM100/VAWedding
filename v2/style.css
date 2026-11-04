@@ -655,3 +655,18 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 @container (max-height: 500px) {
   .hero-content .line-draw-static { display: none; }
 }
+
+/* names joined by an italic ampersand instead of the word "and" */
+.names .amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: max(20px, 2.7cqh);
+  line-height: 1;
+  margin: 0.2cqh 0 0.5cqh;
+}
+@container (max-height: 600px) {
+  .names .amp { font-size: 2.3cqh; margin: 0; }
+}

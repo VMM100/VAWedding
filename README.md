@@ -1,15 +1,14 @@
 # Ayushi & Vandan — Wedding Invite Site
 
-## Two versions
+## Versions
 
-- **Version 1 (original)** — the files at the top level of the repo. Live at `https://vmm100.github.io/VAWedding/`. Also saved as the `v1-original` branch, so it can always be restored exactly.
-- **Version 2 (improved)** — everything in the `v2` folder. Live at `https://vmm100.github.io/VAWedding/v2/`. It uses the same `images` folder, plus its own link-preview picture (`share.jpg`), tab icon (`icon.png`) and calendar files (`calendar/`).
+- **Main site (current design)** — the files at the top level of the repo. Live at `https://vmm100.github.io/VAWedding/`.
+- **Same design at /v2/** — the `v2` folder is a copy of the main site, kept because the printed QR code opens `https://vmm100.github.io/VAWedding/v2/`. **Do not delete or rename the `v2` folder or the repo.** When you change the site, make the same change in both places (in `v2`, image paths start with `../images/`).
+- **Original design (version 1)** — saved on the `v1-original` branch, so it can always be restored exactly.
 
-To make version 2 the main one later, copy the files in `v2` to the top level and change `../images/` back to `images/` in `index.html` and `style.css` — or just share the `/v2/` link.
+Both live copies include the offline PDF (`Ayushi-Vandan-Wedding-Invite.pdf`), the dress-code pop-up pages (`events/`), calendar files (`calendar/`), link-preview picture (`share.jpg`) and tab icon (`icon.png`).
 
-What changed in version 2: easier-to-read gold text and bigger small text on phones, no blank screen after the opening, a dress-code line and "Add to calendar" button under each event, a WhatsApp/iMessage link preview, a tab icon, and a countdown to the first day (18 Jan) that changes to a message on the day.
-
-## Version 1 files
+## Original (version 1) setup notes
 
 Three files make up the whole site (plus the `images` folder, which must be uploaded too):
 

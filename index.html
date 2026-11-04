@@ -2,14 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ayushi &amp; Vandan — Wedding Invitation</title>
   <meta name="description" content="Join Ayushi and Vandan for two days of celebration, 18–19 January 2027, at Raj Vilas The Palace, Orchha, Madhya Pradesh.">
+  <meta name="theme-color" content="#7a1230">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- link preview for WhatsApp, iMessage, Facebook etc. -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vmm100.github.io/VAWedding/">
+  <meta property="og:title" content="Ayushi &amp; Vandan — Wedding Invitation">
+  <meta property="og:description" content="18–19 January 2027 · Raj Vilas The Palace, Orchha, Madhya Pradesh. Tap to open your invitation.">
+  <meta property="og:image" content="https://vmm100.github.io/VAWedding/share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ayushi and Vandan's wedding invitation, framed by a palace archway">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="preload" as="image" href="images/event-arch.webp" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=20261001k">
+  <link rel="stylesheet" href="style.css?v=20261104a">
 </head>
 <body>
 
@@ -26,13 +39,12 @@
             <p class="eyebrow invite">With Love, We Invite You To The Wedding Of</p>
             <h1 class="names">
               <span>Ayushi</span>
-              <span class="amp">and</span>
+              <span class="amp">&amp;</span>
               <span>Vandan</span>
             </h1>
             <div class="line-draw-static"></div>
-            <p class="eyebrow tagline">A Celebration of Love, Family and New Beginnings</p>
             <p class="date">18 – 19 January 2027</p>
-            <p class="eyebrow place">Orchha · Madhya Pradesh, India</p>
+            <p class="eyebrow place">Orchha · Madhya Pradesh</p>
           </div>
         </div>
 
@@ -48,22 +60,25 @@
     <div class="palace-page">
       <div class="pp-crown">
         <img class="pp-img" src="images/palace-crown.webp" alt="" aria-hidden="true">
-        <section class="note">
-          <p data-aos="fade-up">With the blessings of our families, we joyfully invite you to share in two days of celebration as we begin our forever.</p>
-        </section>
+        <div class="deity">
+          <img src="images/shrinathji.webp" alt="Shrinathji" width="511" height="820" data-aos="fade-up">
+        </div>
       </div>
 
       <div class="pp-body">
+        <section class="note">
+          <p data-aos="fade-up">With the blessings of Shreejibawa and our families, we joyfully invite you to share in two days of celebration as we begin our forever.</p>
+        </section>
         <section class="countdown">
-          <p class="eyebrow" data-aos="fade-up" style="color: var(--gold)">Save the Date</p>
-          <div class="countdown-row" data-aos="zoom-in">
+          <p class="eyebrow gold" data-aos="fade-up">Save the Date</p>
+          <div class="countdown-row" id="countdownRow" data-aos="zoom-in">
             <span class="countdown-number" id="countdownNumber">0</span>
             <span class="eyebrow">Days To Go</span>
           </div>
         </section>
 
         <section class="venue">
-          <p class="eyebrow" data-aos="fade-up" style="color: var(--gold)">The Venue</p>
+          <p class="eyebrow" data-aos="fade-up" style="color: var(--gold-text)">The Venue</p>
           <h2 data-aos="fade-up">Raj Vilas The Palace</h2>
           <p class="sub" data-aos="fade-up" data-aos-delay="100">Orchha, Madhya Pradesh, India</p>
           <p class="body-text" data-aos="fade-up" data-aos-delay="150">A royal palace setting for two days of festivities, tradition, and togetherness.</p>
@@ -71,60 +86,104 @@
         </section>
 
         <section class="schedule">
-          <p class="eyebrow center" data-aos="fade-up" style="color: var(--gold)">The Celebration</p>
+          <p class="eyebrow center" data-aos="fade-up" style="color: var(--gold-text)">The Celebration</p>
           <p class="schedule-hint" data-aos="fade-up" data-aos-delay="150">Tap a window to reveal its theme &amp; dress code</p>
 
           <div class="event-windows"> 
             <article class="event-window" data-aos="fade-up">
               <img class="event-arch" src="images/event-arch.webp" alt="" aria-hidden="true">
               <div class="event-info">
-                <p class="eyebrow event-date">18 January 2027</p>
+                <p class="eyebrow event-date">18 Jan 2027</p>
                 <h3>Rang Rasiya</h3>
                 <p class="event-theme">Haldi Ceremony</p>
                 <p class="event-time">1:00 pm</p>
                 <span class="event-cue" aria-hidden="true">View event</span>
               </div>
-              <button type="button" class="event-open" data-img="images/events/haldi.jpg" data-title="Rang Rasiya — Haldi Ceremony" aria-haspopup="dialog">
+              <button type="button" class="event-open" data-img="events/haldi.jpg" data-alt="Come dressed in a celebration of pinks and oranges — from blush, peach and coral to fuchsia and vibrant orange, in playful Indian silhouettes, breezy fabrics, florals, prints and festive embroidery." data-title="Rang Rasiya — Haldi Ceremony" aria-haspopup="dialog">
                 <span class="visually-hidden">View event details, theme and dress code for Haldi Ceremony</span>
               </button>
             </article>
+            <div class="event-extras" data-aos="fade-up">
+              <p class="event-dress"><strong>Dress code</strong>Pinks and oranges</p>
+              <a class="cal-link" href="calendar/haldi.ics" download><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
+            </div>
 
             <article class="event-window" data-aos="fade-up">
               <img class="event-arch" src="images/event-arch.webp" alt="" aria-hidden="true">
               <div class="event-info">
-                <p class="eyebrow event-date">18 January 2027</p>
+                <p class="eyebrow event-date">18 Jan 2027</p>
                 <h3>Chandani Raat</h3>
                 <p class="event-theme">Mehndi &amp; Sangeet</p>
                 <p class="event-time">7:00 pm</p>
                 <span class="event-cue" aria-hidden="true">View event</span>
               </div>
-              <button type="button" class="event-open" data-img="images/events/mehndi-sangeet.jpg" data-title="Chandani Raat — Mehndi &amp; Sangeet" aria-haspopup="dialog">
+              <button type="button" class="event-open" data-img="events/mehndi-sangeet.jpg" data-alt="Dress in moonlit shades of white, beige, silver, brown and blush pink — think shimmering fabrics, Indo-Western silhouettes and sophisticated evening glamour." data-title="Chandani Raat — Mehndi &amp; Sangeet" aria-haspopup="dialog">
                 <span class="visually-hidden">View event details, theme and dress code for Mehndi &amp; Sangeet</span>
               </button>
             </article>
+            <div class="event-extras" data-aos="fade-up">
+              <p class="event-dress"><strong>Dress code</strong>Moonlit whites, beige, silver, brown and blush</p>
+              <a class="cal-link" href="calendar/mehndi-sangeet.ics" download><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
+            </div>
 
             <article class="event-window event-main" data-aos="fade-up">
               <img class="event-arch" src="images/event-arch.webp" alt="" aria-hidden="true">
               <div class="event-info">
-                <p class="eyebrow event-date">19 January 2027</p>
+                <p class="eyebrow event-date">19 Jan 2027</p>
                 <h3>Vo Din</h3>
                 <p class="event-theme">Wedding Ceremony &amp; Reception</p>
-                <span class="badge">Main Event</span>
                 <p class="event-time">From 2:30 pm</p>
                 <span class="event-cue" aria-hidden="true">View event</span>
               </div>
-              <button type="button" class="event-open" data-img="images/events/wedding-reception.jpg" data-title="Vo Din — Wedding Ceremony &amp; Reception" aria-haspopup="dialog">
+              <button type="button" class="event-open" data-img="events/wedding-reception.jpg" data-alt="Wear whatever makes you happiest — your most-loved colours, heirloom sarees, dream outfits, treasured pieces or that special look you’ve been saving for just the right moment." data-title="Vo Din — Wedding Ceremony &amp; Reception" aria-haspopup="dialog">
                 <span class="visually-hidden">View event details, theme and dress code for Wedding Ceremony &amp; Reception</span>
               </button>
             </article>
+            <div class="event-extras" data-aos="fade-up">
+              <p class="event-dress"><strong>Dress code</strong>Whatever makes you happiest</p>
+              <a class="cal-link" href="calendar/wedding-reception.ics" download><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
+            </div>
           </div>
+        </section>
+
+        <section class="travel">
+          <p class="eyebrow center" data-aos="fade-up" style="color: var(--gold-text)">Getting There</p>
+          <h2 class="center" data-aos="fade-up">Travel &amp; Stay</h2>
+
+          <div class="travel-list">
+            <div class="travel-item" data-aos="fade-up">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l-2 0M8 17l-2 4M16 17l2 4M9 14h.01M15 14h.01"/></svg>
+              <h3>By Train</h3>
+              <p><strong>Jhansi Junction</strong> is the nearest major station, about 18 km (around 30 minutes by road) from Orchha, with express trains from Delhi and across India.</p>
+            </div>
+
+            <div class="travel-item" data-aos="fade-up">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5 3 11l1.5-1.5 8 1 4-4.5a2 2 0 0 1 3 3l-4.5 4 1 8L14.5 22 12 14.5z"/></svg>
+              <h3>By Air</h3>
+              <p><strong>Gwalior Airport</strong> is the nearest, about 120 km (around 2½ hours by road). <strong>Khajuraho Airport</strong> is about 170 km (around 3 hours).</p>
+            </div>
+
+            <div class="travel-item" data-aos="fade-up">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V9l9-5 9 5v11"/><path d="M3 20h18M9 20v-6h6v6"/></svg>
+              <h3>Your Stay</h3>
+              <p>All guests will be staying with us at <strong>Raj Vilas The Palace</strong>.</p>
+            </div>
+          </div>
+
+          <p class="travel-note" data-aos="fade-up">We will share transfer options from the airports and station closer to the date.</p>
         </section>
 
         <section class="closing">
           <img class="closing-logo" src="images/swan-logo.png" alt="Ayushi &amp; Vandan swan emblem" width="600" height="319" data-aos="zoom-in">
+          <p class="eyebrow closing-tagline" data-aos="fade-up" data-aos-delay="50">A Celebration of Love, Family and New Beginnings</p>
           <p class="closing-line" data-aos="fade-up" data-aos-delay="100">We can&#39;t wait to celebrate with you.</p>
-          <p class="eyebrow" data-aos="fade-up" data-aos-delay="200" style="color: var(--gold)">With Love, Ayushi &amp; Vandan</p>
+          <p class="eyebrow" data-aos="fade-up" data-aos-delay="200">With Love, Ayushi &amp; Vandan</p>
           <p class="footnote" data-aos="fade-up" data-aos-delay="300">Raj Vilas The Palace, Orchha, Madhya Pradesh<br>18 – 19 January 2027</p>
+          <a class="pdf-link" href="Ayushi-Vandan-Wedding-Invite.pdf" download="Ayushi-Vandan-Wedding-Invite.pdf" data-aos="fade-up" data-aos-delay="350">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+            Download to view offline
+          </a>
+          <p class="pdf-note" data-aos="fade-up" data-aos-delay="350">PDF · about 2 MB</p>
         </section>
       </div>
 
@@ -152,6 +211,6 @@
   </dialog>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="script.js?v=20261001"></script>
+  <script src="script.js?v=20261027a"></script>
 </body>
 </html>

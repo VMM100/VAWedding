@@ -679,3 +679,23 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 .note .couple-amp { margin: 10px 0 6px; font-size: max(26px, min(4.6cqw, 34px)); line-height: 1; font-style: italic; font-weight: 500; color: var(--gold-text); }
 .note .couple-parents { letter-spacing: 0.08em; }
 .note .couple-parents .pn { display: block; }
+
+/* countdown written on a maroon scroll with rolled ends (sits in the page, scrolls with it) */
+.countdown { background: none; padding: 30px 24px 10px; }
+.cd-scroll { position: relative; width: min(100%, 320px); margin: 0 auto; aspect-ratio: 320 / 132; }
+.cd-scroll-art { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(60, 20, 10, 0.25)); }
+.cd-scroll-text { position: absolute; left: 14%; right: 14%; top: 16%; bottom: 16%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.cd-scroll .eyebrow { color: var(--gold-on-maroon); font-size: 12px; letter-spacing: 0.22em; }
+.cd-scroll .countdown-row { margin: 4px 0 0; gap: 10px; }
+.cd-scroll .countdown-number { font-size: 40px; color: var(--gold-on-maroon); }
+.cd-scroll .countdown-row .eyebrow { color: var(--paper); letter-spacing: 0.16em; }
+.cd-scroll .countdown-done { color: var(--paper); font-size: 20px; margin: 4px 0 0; }
+.countdown p { opacity: 1; }
+
+/* countdown scroll tucked into the bottom-right corner of the opening arch window */
+.cd-scroll.cd-hero { position: absolute; z-index: 3; width: 25cqh; left: 57%; top: 72.5%; margin: 0; transform: rotate(-4deg); }
+.cd-hero .cd-scroll-text { left: 13%; right: 13%; top: 14%; bottom: 14%; }
+.cd-hero .countdown-row { flex-direction: column; align-items: center; gap: 0; margin: 0; }
+.cd-hero .countdown-number { font-size: max(20px, 3.6cqh); line-height: 1; }
+.cd-hero .countdown-row .eyebrow { font-size: max(12px, 1.25cqh); letter-spacing: 0.08em; line-height: 1.2; margin-top: 0.2cqh; }
+.cd-hero .countdown-done { font-size: max(12px, 1.6cqh); line-height: 1.1; text-align: center; margin: 0; }

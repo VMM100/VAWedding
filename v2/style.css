@@ -670,3 +670,10 @@ html:has(.event-dialog[open]) { overflow: hidden; }
 @container (max-height: 600px) {
   .names .amp { font-size: 2.3cqh; margin: 0; }
 }
+
+/* blessing: the families' invitation, with the couple named as on the opening screen */
+.note .note-lead { font-size: max(17px, min(3.4cqw, 24px)); font-style: italic; line-height: 1.5; margin: 0 auto; max-width: 28em; }
+.couple { margin: 22px 0 20px; }
+.note .couple-name { margin: 0; font-size: max(38px, min(7cqw, 52px)); line-height: 1.05; font-style: italic; font-weight: 500; color: var(--maroon); }
+.note .couple-parents { margin: 4px 0 0; font-family: 'Cinzel', serif; font-style: normal; line-height: 1.4; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-text); }
+.note .couple-amp { margin: 10px 0 6px; font-size: max(26px, min(4.6cqw, 34px)); line-height: 1; font-style: italic; font-weight: 500; color: var(--gold-text); }

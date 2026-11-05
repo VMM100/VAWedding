@@ -164,13 +164,19 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+    // computers and wide screens get the landscape version of the dress-code page
+    function pickDesign(btn) {
+      var wide = window.innerWidth >= 900 && window.innerWidth > window.innerHeight;
+      return (wide && btn.dataset.imgWide) ? btn.dataset.imgWide : btn.dataset.img;
+    }
+
     function openEvent(btn) {
       if (current) { return; }
       var win = btn.closest('.event-window');
       current = { btn: btn, win: win, busy: true, size: null };
       dialogImg.alt = btn.dataset.title + ' — dress code: ' + (btn.dataset.alt || 'theme and wardrobe');
 
-      loadDesign(btn.dataset.img).then(function (ok) {
+      loadDesign(pickDesign(btn)).then(function (ok) {
         dialogImg.hidden = !ok;
         missing.hidden = ok;
         var aspect = ok ? dialogImg.naturalWidth / dialogImg.naturalHeight : 0.8;
